@@ -7,6 +7,7 @@ package edu.gatech.oad.antlab.person;
  *  @author  Bob
  *  @version 1.1
  */
+
 public class Person3 {
    /** Holds the persons real name */  
 	private String name;
@@ -42,7 +43,20 @@ public class Person3 {
 	 * @return the reversed string
 	 */
 	private String calc(String input) {
-	  //Person 3 put your implementation here
-	  return null;
+	  if (input.length == 0) {
+        return "";
+      }
+
+      char[] inputArr = input.toCharArray();
+      int left = 0, right = input.length;
+      while (left < right) {
+        char temp = inputArr[left];
+        inputArr[left] = inputArr[right];
+        inputArr[right] = temp;
+        left++;
+        right--; 
+      }
+
+	  return new String(inputArr);
 	}
 }
