@@ -66,7 +66,7 @@ import edu.gatech.oad.antlab.pkg2.*;
 		  //Person3 replace P3 with your name
 		  //and gburdell3 with your gt id
 		  Person3 p3 = new Person3("Qianzhen Li");
-		  toPrint += p3.toString("qli365");
+		  toPrint += p3.toString("903361619");
                   //Person4 replace P4 with your name
                   //and gburdell4 with your gt id
                   Person4 p4 = new Person4("P4");
