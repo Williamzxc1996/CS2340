@@ -48,7 +48,7 @@ public class Person3 {
       }
 
       char[] inputArr = input.toCharArray();
-      int left = 0, right = input.length;
+      int left = 0, right = inputArr.length;
       while (left < right) {
         char temp = inputArr[left];
         inputArr[left] = inputArr[right];
