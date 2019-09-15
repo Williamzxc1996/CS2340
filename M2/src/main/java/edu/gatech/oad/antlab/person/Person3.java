@@ -43,7 +43,7 @@ public class Person3 {
 	 * @return the reversed string
 	 */
 	private String calc(String input) {
-	  if (input.length == 0) {
+	  if (input.length() == 0) {
         return "";
       }
 
