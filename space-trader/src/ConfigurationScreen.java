@@ -82,10 +82,15 @@ public class ConfigurationScreen extends JFrame {
         engineerScore.setBounds(250,250,100,20);
         //====Engineer====//
 
+        //====SkillPoints====//
+        JLabel SkillPoints = new JLabel("Skill points upperbound: EASY 16, MEDIUM 12, HARD 8");
+        window.add(SkillPoints);
+        SkillPoints.setBounds(100,280,500,20);
+        //====Engineer====//
 
         //Add a button
-        JButton startBut = new JButton("Confirm");
-        startBut.addActionListener(new ActionListener() {
+        JButton confirmBtn = new JButton("Confirm");
+        confirmBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Configuration newConfig = new Configuration();
@@ -103,22 +108,34 @@ public class ConfigurationScreen extends JFrame {
                 }
 
                 HashMap<String, Integer> map = new HashMap<>();
-                map.put("pilot", Integer.valueOf(pilotScore.getText()));
-                map.put("Fighter", Integer.valueOf(pilotScore.getText()));
-                map.put("Merchant", Integer.valueOf(pilotScore.getText()));
-                map.put("Engineer", Integer.valueOf(pilotScore.getText()));
+                int pilotSkillScore = Integer.valueOf(pilotScore.getText());
+                int fighterSkillScore = Integer.valueOf(fighterSocre.getText());
+                int merchantSkillScore = Integer.valueOf(merchantScore.getText());
+                int engineerSkillScore = Integer.valueOf(engineerScore.getText());
+                map.put("pilot", pilotSkillScore);
+                map.put("Fighter", fighterSkillScore);
+                map.put("Merchant", merchantSkillScore);
+                map.put("Engineer", engineerSkillScore);
                 newConfig.setSkillPointsAllocation(map);
 
                 newConfig.setInitialCredits(credits[indexOfCreditsAndSkillPoints]);
-                //newConfig.setInitialSkillPoints(credits[indexOfCreditsAndSkillPoints]);
+                newConfig.setInitialSkillPoints(skillPoints[indexOfCreditsAndSkillPoints]);
 
-                //Configuration.setCharacterName();
+                int sumOfSkillScore = pilotSkillScore + fighterSkillScore + merchantSkillScore + engineerSkillScore;
+
                 ConfirmationScreen newWindow = new ConfirmationScreen(newConfig);
-                newWindow.createAndShowGUI();
+
+                if(sumOfSkillScore <= newConfig.getInitialSkillPoints()) {
+                    newWindow.createAndShowGUI();
+                } else {
+                    JLabel warning = new JLabel("Please check your skill scores! The sum is beyond upperbound!");
+                    window.add(warning);
+                    warning.setBounds(100,330,500,20);
+                }
             }
         });
-        startBut.setSize(40,40);
-        window.add(startBut);
+        window.add(confirmBtn);
+        confirmBtn.setBounds(250,350,100,40);
 
         //Display the window.
         frame.setSize(500,500);
