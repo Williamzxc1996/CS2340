@@ -28,10 +28,7 @@ public class WelcomeScreen {
         startBut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame newWindow = new JFrame("Configuration");
-                newWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                newWindow.setSize(400,400);
-                newWindow.setVisible(true);
+                ConfigurationScreen.createAndShowGUI();
             }
         });
         startBut.setSize(40,40);

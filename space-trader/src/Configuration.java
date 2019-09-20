@@ -2,49 +2,49 @@ import java.util.Map;
 
 public class Configuration {
 
-    private static String characterName;
-    private static String difficulty;
-    private static Map<String, Integer> skillPointsAllocation;
-    private static int initialSkillPoints;
-    private static int initialCredits;
+    private String characterName;
+    private String difficulty;
+    private Map<String, Integer> skillPointsAllocation;
+    private int initialSkillPoints;
+    private int initialCredits;
 
-    public static String getCharacterName() {
+    public String getCharacterName() {
         return characterName;
     }
 
-    public static void setCharacterName(String characterName) {
-        characterName = characterName;
+    public void setCharacterName(String characterName) {
+        this.characterName = characterName;
     }
 
-    public static String getDifficulty() {
+    public String getDifficulty() {
         return difficulty;
     }
 
-    public static void setDifficulty(String difficulty) {
-        difficulty = difficulty;
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
     }
 
-    public static Map<String, Integer> getSkillPointsAllocation() {
+    public Map<String, Integer> getSkillPointsAllocation() {
         return skillPointsAllocation;
     }
 
-    public static void setSkillPointsAllocation(Map<String, Integer> skillPointsAllocation) {
-        skillPointsAllocation = skillPointsAllocation;
+    public void setSkillPointsAllocation(Map<String, Integer> skillPointsAllocation) {
+        this.skillPointsAllocation = skillPointsAllocation;
     }
 
-    public static int getInitialSkillPoints() {
+    public int getInitialSkillPoints() {
         return initialSkillPoints;
     }
 
-    public static void setInitialSkillPoints(int initialSkillPoints) {
-        initialSkillPoints = initialSkillPoints;
+    public void setInitialSkillPoints(int initialSkillPoints) {
+        this.initialSkillPoints = initialSkillPoints;
     }
 
-    public static int getInitialCredits() {
+    public int getInitialCredits() {
         return initialCredits;
     }
 
-    public static void setInitialCredits(int initialCredits) {
-        initialCredits = initialCredits;
+    public void setInitialCredits(int initialCredits) {
+        this.initialCredits = initialCredits;
     }
 }

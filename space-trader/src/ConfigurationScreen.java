@@ -9,7 +9,7 @@ public class ConfigurationScreen extends JFrame {
     private static Integer[] skillPoints = {16, 12, 8};
     private static Integer[] credits = {1000, 800, 600};
 
-    private static void createAndShowGUI() {
+    public static void createAndShowGUI() {
         //Make sure we have nice window decorations.
         JFrame.setDefaultLookAndFeelDecorated(true);
 
@@ -88,9 +88,10 @@ public class ConfigurationScreen extends JFrame {
         startBut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Configuration.setCharacterName(nameText.getText());
+                Configuration newConfig = new Configuration();
+                newConfig.setCharacterName(nameText.getText());
                 String diff = (String) cb.getSelectedItem();
-                Configuration.setDifficulty(diff);
+                newConfig.setDifficulty(diff);
 
                 int indexOfCreditsAndSkillPoints = -1;
                 if(diff.equals("EASY")) {
@@ -106,16 +107,14 @@ public class ConfigurationScreen extends JFrame {
                 map.put("Fighter", Integer.valueOf(pilotScore.getText()));
                 map.put("Merchant", Integer.valueOf(pilotScore.getText()));
                 map.put("Engineer", Integer.valueOf(pilotScore.getText()));
-                Configuration.setSkillPointsAllocation(map);
+                newConfig.setSkillPointsAllocation(map);
 
-                Configuration.setInitialCredits(credits[indexOfCreditsAndSkillPoints]);
-                Configuration.setInitialSkillPoints(credits[indexOfCreditsAndSkillPoints]);
+                newConfig.setInitialCredits(credits[indexOfCreditsAndSkillPoints]);
+                //newConfig.setInitialSkillPoints(credits[indexOfCreditsAndSkillPoints]);
 
                 //Configuration.setCharacterName();
-                JFrame newWindow = new JFrame("Configuration");
-                newWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                newWindow.setSize(400,400);
-                newWindow.setVisible(true);
+                ConfirmationScreen newWindow = new ConfirmationScreen(newConfig);
+                newWindow.createAndShowGUI();
             }
         });
         startBut.setSize(40,40);
@@ -124,16 +123,6 @@ public class ConfigurationScreen extends JFrame {
         //Display the window.
         frame.setSize(500,500);
         frame.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
     }
 
 }
